@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="card">
+    <div class="card-header">
+        <p>
+            انتخاب نقشه
+        </p>
+    </div>
+    <div class="card-body">
+        <a *ngFor="let ticket of tickets;let i = index" routerLink="../reserve/{{ticket}}">
+            {{i + 1}}
+        </a>
+    </div>
+</div>

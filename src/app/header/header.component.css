@@ -1,0 +1,19 @@
+.header {
+    background-color: #2962ff;
+    color: white;
+    height: 5vh;
+    padding: 5px 15px;
+    font-size: 1.4em;
+}
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+.header i {
+    cursor: pointer;
+}
+.header a {
+    color: white;
+}

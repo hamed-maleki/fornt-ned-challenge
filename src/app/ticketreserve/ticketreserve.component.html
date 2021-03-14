@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div class="flex-container" *ngIf="loaded">
+    
+    <div class="col-9 card">
+        <div>
+            <div class="seat" (click)="chooseSeat(seat,seatIndex)" [ngClass]="{'available':seat == 1,'not-availabel':seat == 0}" *ngFor="let seat of seatsInfo;let seatIndex = index">
+                <i class="fa fa-check" *ngIf="seat == 1"></i>
+                <i class="fa fa-times-circle" *ngIf="seat == 0"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-1 card">
+        <ul>
+            <li [ngClass]="{'selected-list':selectedRow == seatGroupIndex}"  *ngFor="let seatGroup of seatsGroup;let seatGroupIndex = index" (click)="getSeatData(seatGroupIndex)">
+                {{seatGroupIndex + 1}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="card" *ngIf="!loaded">
+    <p class="alert">ارتباط با مشکل مواجه شده است</p>
+</div>
+<div class="custom-modal" *ngIf="modalStatus">
+    <div class="modal-content">
+        <div *ngIf="!postingError">
+            <p class="info">
+                خرید صندلی با ردیف {{selectedRow + 1}}  و شماره {{selectedSeat + 1}} مورد تایید میباشد؟
+            </p>
+            <div class="left-align">
+                <button class="btn btn-success" (click)="confimBuy()">
+                    <i class="fa fa-check"></i>
+                    تایید صندلی و ادامه خرید
+                </button>
+                <button class="btn btn-danger" (click)="cancelBuy()">
+                    <i class="fa fa-times-circle"></i>
+                    انصراف از خرید
+                </button>
+            </div>
+        </div>
+        <div *ngIf="postingError">
+            <p class="alert info">
+                خرید با مشکل مواجه شد
+            </p>
+            <div class="left-align">
+                <button class="btn btn-danger" (click)="cancelBuy()">
+                    <i class="fa fa-times-circle"></i>
+                    انصراف 
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

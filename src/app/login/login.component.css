@@ -1,0 +1,23 @@
+
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.input-container {
+    width: 50%;
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8% 15px;
+}
+.input-container div {
+    width: 80%;
+    margin-top: 15px;
+}
